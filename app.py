@@ -5,16 +5,13 @@ import httpx
 import os
 from dotenv import load_dotenv
 
-# Load env vars from .env in local development
 load_dotenv()
 
-# Custom HTTP client with proxies disabled
 http_client = httpx.Client(proxy=None)
 
-# Initialize OpenAI client with env vars
 client = OpenAI(
     api_key=os.getenv("OPENAI_API_KEY"),
-    base_url=os.getenv("OPENAI_BASE_URL"),  # e.g., https://aipipe.org/openai/v1
+    base_url=os.getenv("OPENAI_BASE_URL"),
     http_client=http_client
 )
 
